@@ -1,3 +1,4 @@
+require('dotenv').config()
 const config = require('../configs/database');
 const mysql = require('mysql');
 const pool = mysql.createPool(config);
@@ -7,7 +8,7 @@ pool.on('error',(err)=> {
     console.error(err);
 });
 
-const secret_key = "ksagdiyhjUYGJHGjfsadyugjHGSjkafdu91263&^%&^%(%&^"
+const secret_key = process.env.SECRET_KEY
 
 module.exports ={
     // Fungsi untuk menyimpan data
